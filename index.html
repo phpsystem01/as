@@ -260,14 +260,14 @@
         }
 
         .logout-btn {
-            background-color: var(--gray-100);
-            color: var(--text-color);
+            background: none;
             border: none;
-            padding: 0.5rem 1rem;
-            border-radius: var(--border-radius);
-            cursor: pointer;
             font-size: 0.875rem;
+            color: var(--text-color);
+            cursor: pointer;
             transition: var(--transition);
+            padding: 0.5rem 0.75rem;
+            border-radius: var(--border-radius);
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -275,7 +275,7 @@
         }
 
         .logout-btn:hover {
-            background-color: var(--gray-200);
+            background-color: var(--gray-100);
             color: var(--text-color-dark);
         }
 
@@ -679,13 +679,14 @@
             font-size: 0.625rem;
         }
 
-        .actions {
+        .table-actions {
             display: flex;
             gap: 0.5rem;
             flex-wrap: wrap;
+            justify-content: flex-end;
         }
 
-        .actions .btn {
+        .table-actions .btn {
             padding: 0.5rem 0.75rem;
             font-size: 0.75rem;
             white-space: nowrap;
@@ -1311,6 +1312,110 @@
             transform: scale(1.1);
         }
 
+        /* Sección de Certificados */
+        .certificate-card {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .certificate-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .certificate-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .certificate-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-color-dark);
+        }
+
+        .certificate-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.875rem;
+            color: var(--text-color-light);
+        }
+
+        .certificate-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .certificate-preview {
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 1rem;
+            margin: 1rem 0;
+            background-color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .certificate-preview img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+        }
+
+        .certificate-actions {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .certificate-template-selector {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .certificate-template {
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .certificate-template:hover {
+            border-color: var(--primary-300);
+        }
+
+        .certificate-template.selected {
+            border-color: var(--primary-500);
+            background-color: var(--primary-50);
+        }
+
+        .certificate-template img {
+            width: 100%;
+            height: auto;
+            border-radius: calc(var(--border-radius) - 5px);
+            margin-bottom: 0.5rem;
+        }
+
+        .certificate-template h4 {
+            margin: 0.5rem 0 0;
+            font-size: 0.9375rem;
+            color: var(--text-color-dark);
+        }
+
         /* Media Queries mejoradas */
         @media (min-width: 768px) {
             .dashboard {
@@ -1415,6 +1520,26 @@
                 overflow-x: auto;
                 padding-bottom: 0.5rem;
             }
+
+            /* Mejoras para tablas en móviles */
+            .responsive-table {
+                border-radius: 0;
+                border-left: none;
+                border-right: none;
+            }
+
+            th, td {
+                padding: 0.75rem;
+            }
+
+            .table-actions {
+                justify-content: flex-start;
+            }
+
+            .table-actions .btn {
+                padding: 0.5rem;
+                font-size: 0.6875rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1448,14 +1573,59 @@
                 flex: 1;
             }
 
-            th, td {
-                padding: 0.75rem;
+            .certificate-header {
+                flex-direction: column;
+                align-items: flex-start;
             }
 
-            .actions .btn {
-                padding: 0.5rem;
-                font-size: 0.6875rem;
+            .certificate-meta {
+                flex-direction: column;
+                gap: 0.5rem;
             }
+        }
+
+        /* Mejoras para centrado y organización */
+        .d-flex {
+            display: flex;
+        }
+
+        .align-items-center {
+            align-items: center;
+        }
+
+        .justify-content-center {
+            justify-content: center;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-muted {
+            color: var(--text-color-light);
+        }
+
+        .font-weight-600 {
+            font-weight: 600;
+        }
+
+        .btn-sm {
+            padding: 0.5rem 0.75rem;
+            font-size: 0.75rem;
+        }
+
+        /* Mejoras para la sección de pagos */
+        .payment-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .payment-actions {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: flex-end;
+            flex-wrap: wrap;
         }
     </style>
 </head>
@@ -1503,12 +1673,13 @@
                 <li><a href="#pagos" onclick="showSection('pagos')"><i class="fas fa-credit-card"></i> Pagos</a></li>
                 <li><a href="#estadisticas" onclick="showSection('estadisticas')"><i class="fas fa-chart-line"></i> Estadísticas</a></li>
                 <li><a href="#calendario" onclick="showSection('calendario')"><i class="fas fa-calendar-alt"></i> Calendario</a></li>
+                <li><a href="#certificados" onclick="showSection('certificados')"><i class="fas fa-file-certificate"></i> Certificados</a></li>
             </ul>
             
             <h2>Herramientas</h2>
             <ul>
-                <li><a href="#"><i class="fas fa-file-certificate"></i> Certificados</a></li>
                 <li><a href="#"><i class="fas fa-envelope"></i> Mensajes</a></li>
+                <li><a href="#"><i class="fas fa-file-export"></i> Reportes</a></li>
             </ul>
         </div>
 
@@ -1524,11 +1695,11 @@
                 </div>
             </div>
 
-            <!-- Barra de búsqueda -->
+            <!-- Barra de búsqueda única -->
             <div class="search-bar">
                 <div class="search-input">
                     <i class="fas fa-search"></i>
-                    <input type="text" id="search-input" placeholder="Buscar cursos...">
+                    <input type="text" id="search-input" placeholder="Buscar...">
                 </div>
             </div>
 
@@ -1666,13 +1837,6 @@
 
             <!-- Sección de Estudiantes -->
             <div id="estudiantes" class="section">
-                <div class="search-bar">
-                    <div class="search-input">
-                        <i class="fas fa-search"></i>
-                        <input type="text" id="student-search" placeholder="Buscar estudiantes por nombre o email..." onkeyup="searchStudents()">
-                    </div>
-                </div>
-                
                 <div class="responsive-table">
                     <table id="students-table">
                         <thead>
@@ -1698,16 +1862,18 @@
                                 <td>ana@example.com</td>
                                 <td>HTML5, CSS3</td>
                                 <td><span class="badge badge-success">Activo</span></td>
-                                <td class="actions">
-                                    <button class="btn btn-secondary btn-sm">
-                                        <i class="fas fa-edit"></i>
-                                    </button>
-                                    <button class="btn btn-danger btn-sm">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                    <button class="btn btn-success btn-sm" onclick="sendCertificate('Ana López')">
-                                        <i class="fas fa-certificate"></i>
-                                    </button>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn btn-secondary btn-sm">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-danger btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                        <button class="btn btn-success btn-sm" onclick="sendCertificate('Ana López')">
+                                            <i class="fas fa-certificate"></i>
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
@@ -1723,16 +1889,18 @@
                                 <td>pedro@example.com</td>
                                 <td>CSS3, JavaScript</td>
                                 <td><span class="badge badge-success">Activo</span></td>
-                                <td class="actions">
-                                    <button class="btn btn-secondary btn-sm">
-                                        <i class="fas fa-edit"></i>
-                                    </button>
-                                    <button class="btn btn-danger btn-sm">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                    <button class="btn btn-success btn-sm" onclick="sendCertificate('Pedro Martínez')">
-                                        <i class="fas fa-certificate"></i>
-                                    </button>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn btn-secondary btn-sm">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-danger btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                        <button class="btn btn-success btn-sm" onclick="sendCertificate('Pedro Martínez')">
+                                            <i class="fas fa-certificate"></i>
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
@@ -1748,16 +1916,18 @@
                                 <td>luisa@example.com</td>
                                 <td>JavaScript, Python</td>
                                 <td><span class="badge badge-warning">Pendiente</span></td>
-                                <td class="actions">
-                                    <button class="btn btn-secondary btn-sm">
-                                        <i class="fas fa-edit"></i>
-                                    </button>
-                                    <button class="btn btn-danger btn-sm">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                    <button class="btn btn-success btn-sm" onclick="sendCertificate('Luisa Fernández')">
-                                        <i class="fas fa-certificate"></i>
-                                    </button>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn btn-secondary btn-sm">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-danger btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                        <button class="btn btn-success btn-sm" onclick="sendCertificate('Luisa Fernández')">
+                                            <i class="fas fa-certificate"></i>
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
@@ -1773,16 +1943,18 @@
                                 <td>miguel@example.com</td>
                                 <td>Python, React</td>
                                 <td><span class="badge badge-success">Activo</span></td>
-                                <td class="actions">
-                                    <button class="btn btn-secondary btn-sm">
-                                        <i class="fas fa-edit"></i>
-                                    </button>
-                                    <button class="btn btn-danger btn-sm">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                    <button class="btn btn-success btn-sm" onclick="sendCertificate('Miguel Ángel')">
-                                        <i class="fas fa-certificate"></i>
-                                    </button>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn btn-secondary btn-sm">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-danger btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                        <button class="btn btn-success btn-sm" onclick="sendCertificate('Miguel Ángel')">
+                                            <i class="fas fa-certificate"></i>
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
@@ -1798,16 +1970,18 @@
                                 <td>carlos@example.com</td>
                                 <td>React, HTML5</td>
                                 <td><span class="badge badge-danger">Inactivo</span></td>
-                                <td class="actions">
-                                    <button class="btn btn-secondary btn-sm">
-                                        <i class="fas fa-edit"></i>
-                                    </button>
-                                    <button class="btn btn-danger btn-sm">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                    <button class="btn btn-success btn-sm" onclick="sendCertificate('Carlos Rojas')">
-                                        <i class="fas fa-certificate"></i>
-                                    </button>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn btn-secondary btn-sm">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-danger btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                        <button class="btn btn-success btn-sm" onclick="sendCertificate('Carlos Rojas')">
+                                            <i class="fas fa-certificate"></i>
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>
@@ -1817,16 +1991,6 @@
 
             <!-- Sección de Instructores -->
             <div id="instructores" class="section">
-                <div class="search-bar">
-                    <div class="search-input">
-                        <i class="fas fa-search"></i>
-                        <input type="text" id="instructor-search" placeholder="Buscar instructores...">
-                    </div>
-                    <button class="btn" onclick="openInstructorModal()">
-                        <i class="fas fa-plus"></i> Nuevo Instructor
-                    </button>
-                </div>
-                
                 <div class="responsive-table">
                     <table id="instructors-table">
                         <thead>
@@ -1854,13 +2018,15 @@
                                 <td>Desarrollo Web</td>
                                 <td>HTML5, CSS3</td>
                                 <td><span class="badge badge-success">Activo</span></td>
-                                <td class="actions">
-                                    <button class="btn btn-secondary btn-sm">
-                                        <i class="fas fa-edit"></i>
-                                    </button>
-                                    <button class="btn btn-danger btn-sm">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn btn-secondary btn-sm">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-danger btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
@@ -1877,13 +2043,15 @@
                                 <td>Diseño Web</td>
                                 <td>CSS3, JavaScript</td>
                                 <td><span class="badge badge-success">Activo</span></td>
-                                <td class="actions">
-                                    <button class="btn btn-secondary btn-sm">
-                                        <i class="fas fa-edit"></i>
-                                    </button>
-                                    <button class="btn btn-danger btn-sm">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn btn-secondary btn-sm">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-danger btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
@@ -1900,13 +2068,15 @@
                                 <td>JavaScript</td>
                                 <td>JavaScript Avanzado</td>
                                 <td><span class="badge badge-success">Activo</span></td>
-                                <td class="actions">
-                                    <button class="btn btn-secondary btn-sm">
-                                        <i class="fas fa-edit"></i>
-                                    </button>
-                                    <button class="btn btn-danger btn-sm">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn btn-secondary btn-sm">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-danger btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
@@ -1923,13 +2093,15 @@
                                 <td>Python</td>
                                 <td>Python para Principiantes</td>
                                 <td><span class="badge badge-success">Activo</span></td>
-                                <td class="actions">
-                                    <button class="btn btn-secondary btn-sm">
-                                        <i class="fas fa-edit"></i>
-                                    </button>
-                                    <button class="btn btn-danger btn-sm">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn btn-secondary btn-sm">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-danger btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
@@ -1946,13 +2118,15 @@
                                 <td>React</td>
                                 <td>React.js Profesional</td>
                                 <td><span class="badge badge-success">Activo</span></td>
-                                <td class="actions">
-                                    <button class="btn btn-secondary btn-sm">
-                                        <i class="fas fa-edit"></i>
-                                    </button>
-                                    <button class="btn btn-danger btn-sm">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn btn-secondary btn-sm">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-danger btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>
@@ -1962,13 +2136,9 @@
 
             <!-- Sección de Control de Pagos -->
             <div id="pagos" class="section">
-                <div class="search-bar">
-                    <div class="search-input">
-                        <i class="fas fa-search"></i>
-                        <input type="text" id="payment-search" placeholder="Buscar pagos...">
-                    </div>
+                <div class="header-actions" style="margin-bottom: 1.5rem;">
                     <button class="btn" onclick="openPaymentModal()">
-                        <i class="fas fa-plus"></i> Nuevo Pago
+                        <i class="fas fa-plus"></i> Añadir Pago
                     </button>
                 </div>
                 
@@ -1997,10 +2167,15 @@
                                         <i class="fas fa-clock"></i> Pendiente
                                     </span>
                                 </td>
-                                <td class="actions">
-                                    <button class="btn btn-success btn-sm" onclick="markAsPaid('Ana López')">
-                                        <i class="fas fa-check"></i> Marcar como Pagado
-                                    </button>
+                                <td>
+                                    <div class="payment-actions">
+                                        <button class="btn btn-success btn-sm" onclick="markAsPaid('Ana López')">
+                                            <i class="fas fa-check"></i> Marcar como Pagado
+                                        </button>
+                                        <button class="btn btn-secondary btn-sm">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
@@ -2014,10 +2189,15 @@
                                         <i class="fas fa-check-circle"></i> Pagado
                                     </span>
                                 </td>
-                                <td class="actions">
-                                    <button class="btn btn-secondary btn-sm" disabled>
-                                        <i class="fas fa-check"></i> Pagado
-                                    </button>
+                                <td>
+                                    <div class="payment-actions">
+                                        <button class="btn btn-secondary btn-sm" disabled>
+                                            <i class="fas fa-check"></i> Pagado
+                                        </button>
+                                        <button class="btn btn-secondary btn-sm">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
@@ -2031,10 +2211,15 @@
                                         <i class="fas fa-clock"></i> Pendiente
                                     </span>
                                 </td>
-                                <td class="actions">
-                                    <button class="btn btn-success btn-sm" onclick="markAsPaid('Luisa Fernández')">
-                                        <i class="fas fa-check"></i> Marcar como Pagado
-                                    </button>
+                                <td>
+                                    <div class="payment-actions">
+                                        <button class="btn btn-success btn-sm" onclick="markAsPaid('Luisa Fernández')">
+                                            <i class="fas fa-check"></i> Marcar como Pagado
+                                        </button>
+                                        <button class="btn btn-secondary btn-sm">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
@@ -2048,10 +2233,15 @@
                                         <i class="fas fa-check-circle"></i> Pagado
                                     </span>
                                 </td>
-                                <td class="actions">
-                                    <button class="btn btn-secondary btn-sm" disabled>
-                                        <i class="fas fa-check"></i> Pagado
-                                    </button>
+                                <td>
+                                    <div class="payment-actions">
+                                        <button class="btn btn-secondary btn-sm" disabled>
+                                            <i class="fas fa-check"></i> Pagado
+                                        </button>
+                                        <button class="btn btn-secondary btn-sm">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>
@@ -2155,6 +2345,123 @@
                     <div class="calendar-add-event">
                         <button class="btn" onclick="openEventModal()">
                             <i class="fas fa-plus"></i> Agregar Evento
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección de Certificados -->
+            <div id="certificados" class="section">
+                <div class="header-actions" style="margin-bottom: 1.5rem;">
+                    <button class="btn" onclick="openCertificateModal()">
+                        <i class="fas fa-plus"></i> Generar Certificado
+                    </button>
+                </div>
+                
+                <div class="certificate-card">
+                    <div class="certificate-header">
+                        <h3 class="certificate-title">Certificado de Finalización - HTML5 Moderno</h3>
+                        <div class="certificate-meta">
+                            <div class="certificate-meta-item">
+                                <i class="fas fa-user-graduate"></i>
+                                <span>Ana López</span>
+                            </div>
+                            <div class="certificate-meta-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>15/06/2023</span>
+                            </div>
+                            <div class="certificate-meta-item">
+                                <i class="fas fa-id-card"></i>
+                                <span>#CERT-001</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="certificate-preview">
+                        <img src="https://via.placeholder.com/800x500?text=Certificado+HTML5+Moderno" alt="Certificado HTML5 Moderno">
+                    </div>
+                    
+                    <div class="certificate-actions">
+                        <button class="btn btn-secondary">
+                            <i class="fas fa-download"></i> Descargar PDF
+                        </button>
+                        <button class="btn btn-success">
+                            <i class="fas fa-envelope"></i> Enviar por Email
+                        </button>
+                        <button class="btn btn-danger">
+                            <i class="fas fa-trash"></i> Eliminar
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="certificate-card">
+                    <div class="certificate-header">
+                        <h3 class="certificate-title">Certificado de Finalización - Diseño Web CSS3</h3>
+                        <div class="certificate-meta">
+                            <div class="certificate-meta-item">
+                                <i class="fas fa-user-graduate"></i>
+                                <span>Pedro Martínez</span>
+                            </div>
+                            <div class="certificate-meta-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>10/06/2023</span>
+                            </div>
+                            <div class="certificate-meta-item">
+                                <i class="fas fa-id-card"></i>
+                                <span>#CERT-002</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="certificate-preview">
+                        <img src="https://via.placeholder.com/800x500?text=Certificado+Diseño+Web+CSS3" alt="Certificado Diseño Web CSS3">
+                    </div>
+                    
+                    <div class="certificate-actions">
+                        <button class="btn btn-secondary">
+                            <i class="fas fa-download"></i> Descargar PDF
+                        </button>
+                        <button class="btn btn-success">
+                            <i class="fas fa-envelope"></i> Enviar por Email
+                        </button>
+                        <button class="btn btn-danger">
+                            <i class="fas fa-trash"></i> Eliminar
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="certificate-card">
+                    <div class="certificate-header">
+                        <h3 class="certificate-title">Certificado de Finalización - JavaScript Avanzado</h3>
+                        <div class="certificate-meta">
+                            <div class="certificate-meta-item">
+                                <i class="fas fa-user-graduate"></i>
+                                <span>Luisa Fernández</span>
+                            </div>
+                            <div class="certificate-meta-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>05/06/2023</span>
+                            </div>
+                            <div class="certificate-meta-item">
+                                <i class="fas fa-id-card"></i>
+                                <span>#CERT-003</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="certificate-preview">
+                        <img src="https://via.placeholder.com/800x500?text=Certificado+JavaScript+Avanzado" alt="Certificado JavaScript Avanzado">
+                    </div>
+                    
+                    <div class="certificate-actions">
+                        <button class="btn btn-secondary">
+                            <i class="fas fa-download"></i> Descargar PDF
+                        </button>
+                        <button class="btn btn-success">
+                            <i class="fas fa-envelope"></i> Enviar por Email
+                        </button>
+                        <button class="btn btn-danger">
+                            <i class="fas fa-trash"></i> Eliminar
                         </button>
                     </div>
                 </div>
@@ -2581,7 +2888,7 @@
                                     <td>Administrador</td>
                                     <td>Acceso completo al sistema</td>
                                     <td>Todos los permisos</td>
-                                    <td class="actions">
+                                    <td class="table-actions">
                                         <button class="btn btn-secondary btn-sm">
                                             <i class="fas fa-edit"></i>
                                         </button>
@@ -2591,7 +2898,7 @@
                                     <td>Asistente</td>
                                     <td>Soporte a estudiantes</td>
                                     <td>Limitado</td>
-                                    <td class="actions">
+                                    <td class="table-actions">
                                         <button class="btn btn-secondary btn-sm">
                                             <i class="fas fa-edit"></i>
                                         </button>
@@ -2747,6 +3054,81 @@
         </div>
     </div>
 
+    <!-- Modal para certificados -->
+    <div class="modal" id="certificateModal">
+        <div class="modal-content" style="max-width: 800px;">
+            <div class="modal-header">
+                <h2><i class="fas fa-file-certificate"></i> Generar Certificado</h2>
+                <button class="close-modal" onclick="closeCertificateModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <form id="certificate-form" class="modal-form">
+                <div class="form-group">
+                    <label for="certificate-student">Estudiante</label>
+                    <select id="certificate-student" class="form-control" name="certificate-student" required>
+                        <option value="">Seleccionar estudiante</option>
+                        <option value="Ana López">Ana López</option>
+                        <option value="Pedro Martínez">Pedro Martínez</option>
+                        <option value="Luisa Fernández">Luisa Fernández</option>
+                        <option value="Miguel Ángel">Miguel Ángel</option>
+                        <option value="Carlos Rojas">Carlos Rojas</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="certificate-course">Curso</label>
+                    <select id="certificate-course" class="form-control" name="certificate-course" required>
+                        <option value="">Seleccionar curso</option>
+                        <option value="HTML5 Moderno">HTML5 Moderno</option>
+                        <option value="Diseño Web CSS3">Diseño Web CSS3</option>
+                        <option value="JavaScript Avanzado">JavaScript Avanzado</option>
+                        <option value="Python para Principiantes">Python para Principiantes</option>
+                        <option value="React.js Profesional">React.js Profesional</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="certificate-date">Fecha de Finalización</label>
+                    <input type="text" id="certificate-date" class="form-control" name="certificate-date" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Plantilla de Certificado</label>
+                    <div class="certificate-template-selector">
+                        <div class="certificate-template selected" onclick="selectCertificateTemplate(this)">
+                            <img src="https://via.placeholder.com/300x200?text=Plantilla+1" alt="Plantilla 1">
+                            <h4>Clásico</h4>
+                        </div>
+                        <div class="certificate-template" onclick="selectCertificateTemplate(this)">
+                            <img src="https://via.placeholder.com/300x200?text=Plantilla+2" alt="Plantilla 2">
+                            <h4>Moderno</h4>
+                        </div>
+                        <div class="certificate-template" onclick="selectCertificateTemplate(this)">
+                            <img src="https://via.placeholder.com/300x200?text=Plantilla+3" alt="Plantilla 3">
+                            <h4>Elegante</h4>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="certificate-message">Mensaje Personalizado</label>
+                    <textarea id="certificate-message" class="form-control" name="certificate-message" rows="3">Felicitaciones por completar exitosamente el curso. Este certificado reconoce tu dedicación y esfuerzo.</textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeCertificateModal()">
+                        <i class="fas fa-times"></i> Cancelar
+                    </button>
+                    <button type="submit" class="btn">
+                        <i class="fas fa-save"></i> Generar Certificado
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
@@ -2895,8 +3277,8 @@
 
         // Función para buscar estudiantes
         function searchStudents() {
-            const input = document.getElementById('student-search');
-            const filter = input.value.toUpperCase();
+            const input = document.getElementById('search-input');
+            const filter = input.value.toLowerCase();
             const table = document.getElementById('students-table');
             const tr = table.getElementsByTagName('tr');
 
@@ -2932,7 +3314,7 @@
 
         // Cerrar modal al hacer clic fuera del contenido
         window.onclick = function (event) {
-            const modals = ['modal', 'profileModal', 'notificationsModal', 'settingsModal', 'eventModal', 'paymentModal', 'instructorModal'];
+            const modals = ['modal', 'profileModal', 'notificationsModal', 'settingsModal', 'eventModal', 'paymentModal', 'instructorModal', 'certificateModal'];
             modals.forEach(modalId => {
                 const modal = document.getElementById(modalId);
                 if (event.target === modal) {
@@ -3035,11 +3417,18 @@
                 case 'estadisticas':
                     sectionTitle.textContent = 'Estadísticas del Sistema';
                     actionButton.classList.add('hidden');
+                    // Inicializar gráficos al mostrar la sección
+                    initializeCharts();
                     break;
                 case 'calendario':
                     sectionTitle.textContent = 'Calendario de Eventos';
                     actionButton.classList.add('hidden');
                     renderCalendar(currentMonth, currentYear);
+                    break;
+                case 'certificados':
+                    sectionTitle.textContent = 'Gestión de Certificados';
+                    actionButton.innerHTML = '<i class="fas fa-plus"></i> Generar Certificado';
+                    actionButton.classList.remove('hidden');
                     break;
             }
 
@@ -3065,9 +3454,6 @@
         document.addEventListener('DOMContentLoaded', function() {
             showSection('cursos');
             
-            // Inicializar gráficos
-            initializeCharts();
-            
             // Inicializar calendario
             flatpickr("#event-date", {
                 dateFormat: "Y-m-d",
@@ -3086,6 +3472,26 @@
                 dateFormat: "Y-m-d",
                 locale: "es",
                 defaultDate: new Date()
+            });
+
+            // Inicializar fecha de certificado
+            flatpickr("#certificate-date", {
+                dateFormat: "Y-m-d",
+                locale: "es",
+                defaultDate: new Date()
+            });
+
+            // Configurar la búsqueda
+            document.getElementById('search-input').addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                
+                if (currentSection === 'estudiantes') {
+                    searchStudents();
+                } else if (currentSection === 'instructores') {
+                    // Implementar búsqueda de instructores si es necesario
+                } else if (currentSection === 'cursos') {
+                    // Implementar búsqueda de cursos si es necesario
+                }
             });
         });
 
@@ -3445,6 +3851,45 @@
             // Aquí podrías agregar la lógica para guardar el pago en tu base de datos
             
             closePaymentModal();
+        });
+
+        // Funciones para el modal de certificados
+        function openCertificateModal() {
+            document.getElementById('certificateModal').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCertificateModal() {
+            document.getElementById('certificateModal').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        function selectCertificateTemplate(element) {
+            document.querySelectorAll('.certificate-template').forEach(template => {
+                template.classList.remove('selected');
+            });
+            element.classList.add('selected');
+        }
+
+        // Manejar el envío del formulario de certificados
+        document.getElementById('certificate-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const student = document.getElementById('certificate-student').value;
+            const course = document.getElementById('certificate-course').value;
+            const date = document.getElementById('certificate-date').value;
+            const message = document.getElementById('certificate-message').value;
+            
+            showToast(`Certificado generado para ${student} en el curso ${course}`, 'success');
+            
+            // Aquí podrías agregar la lógica para generar el certificado
+            
+            closeCertificateModal();
+            
+            // Actualizar la lista de certificados
+            if (currentSection === 'certificados') {
+                showSection('certificados');
+            }
         });
 
         // Funciones para el modo oscuro
